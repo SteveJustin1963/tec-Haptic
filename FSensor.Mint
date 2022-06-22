@@ -1,4 +1,4 @@
-\\ fortgh 83 , need to convert to MINT
+\\ forth 83 , need to convert to MINT
 
 : flex-sensor-example
 
