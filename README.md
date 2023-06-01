@@ -17,7 +17,8 @@ There are a variety of different sensors that can be used to detect the movement
 - pressure sensor
 - temperature sensor on skin
 
-
+## Iterate
+- tec-Gesture
 
 
 
