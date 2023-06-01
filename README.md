@@ -17,9 +17,6 @@ There are a variety of different sensors that can be used to detect the movement
 - pressure sensor
 - temperature sensor on skin
 
-## Iterate
-- tec-Gesture
-
 
 
 ### variable resistor be used? 
@@ -49,5 +46,10 @@ There are a variety of different types of output that can be used in a haptic co
 ## code
 
 
+## Iterate
+- [tec-Gesture](https://github.com/SteveJustin1963/tec-Gesture)
+
+## Ref
+- 
 
 
