@@ -42,8 +42,7 @@ Various output types provide haptic feedback, including:
 - **Temperature Feedback** – Thermoelectric devices create heat or coolness for simulation.
 - **Force Feedback** – Motors or resistance elements simulate pressure or resistance.
 
-## Code Implementation
-looking at other ppl work
+## example by others
 
 The `FSensor.ino` file is an Arduino sketch for reading a **flex sensor** using a **voltage divider circuit**. Here’s a breakdown of its functionality:
 
