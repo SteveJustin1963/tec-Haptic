@@ -45,10 +45,6 @@ Various output types provide haptic feedback, including:
 ## Code Implementation
 looking at other ppl work
 
-FSensor.ino
-
-I'll analyze the `FSensor.ino` file and explain its functionality. Let me process the code now.
-
 The `FSensor.ino` file is an Arduino sketch for reading a **flex sensor** using a **voltage divider circuit**. Here’s a breakdown of its functionality:
 
 ### **Overview**
@@ -115,11 +111,4 @@ void loop() {
 
 
  
-
-## Further Development
-### Related Projects
-- [tec-Gesture](https://github.com/SteveJustin1963/tec-Gesture)
-
-### References
-- (Add relevant references and documentation sources here.)
 
