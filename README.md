@@ -1,5 +1,14 @@
 # tec-Haptic
 
+## Table of Contents
+- [Overview](#overview)
+- [Input Mechanisms](#input-mechanisms)
+  - [Sensor-Based Input](#sensor-based-input)
+  - [Detecting Finger Movements](#detecting-finger-movements)
+- [Output Mechanisms](#output-mechanisms)
+- [Example by Others](#example-by-others)
+- [Convert to MINT](#convert-to-mint)
+
 ## Haptic Communication Interfaces for the TEC-1
 
 ### Overview
@@ -42,7 +51,7 @@ Various output types provide haptic feedback, including:
 - **Temperature Feedback** – Thermoelectric devices create heat or coolness for simulation.
 - **Force Feedback** – Motors or resistance elements simulate pressure or resistance.
 
-## example by others
+## Example by Others
 
 The `FSensor.ino` file is an Arduino sketch for reading a **flex sensor** using a **voltage divider circuit**. Here’s a breakdown of its functionality:
 
@@ -53,61 +62,8 @@ The `FSensor.ino` file is an Arduino sketch for reading a **flex sensor** using 
 
 ---
 
-### **Code Breakdown**
-#### **1. Pin and Constant Declarations**
-```cpp
-const int FLEX_PIN = A0; // Pin connected to voltage divider output
-const float VCC = 4.98; // Measured voltage of Arduino 5V line
-const float R_DIV = 47500.0; // Measured resistance of 47kΩ resistor
-```
-- **`FLEX_PIN`**: Analog pin `A0` reads the sensor voltage.
-- **`VCC`**: Actual voltage supplied to Arduino’s `5V` pin (measured for accuracy).
-- **`R_DIV`**: The reference resistor value (`47kΩ` in this case).
-
-#### **2. Reading Sensor Data**
-```cpp
-void setup() {
-    Serial.begin(9600); // Start serial communication
-}
-
-void loop() {
-    int flexADC = analogRead(FLEX_PIN); // Read sensor voltage
-    float flexV = flexADC * VCC / 1023.0; // Convert ADC value to voltage
-    float flexR = R_DIV * (VCC / flexV - 1.0); // Calculate flex sensor resistance
-    
-    Serial.print("Resistance: ");
-    Serial.print(flexR);
-    Serial.println(" ohms");
-
-    delay(500);
-}
-```
-- **`analogRead(FLEX_PIN)`**: Reads **analog voltage** from the sensor.
-- **`flexV = flexADC * VCC / 1023.0`**: Converts ADC (0-1023) to actual **voltage**.
-- **`flexR = R_DIV * (VCC / flexV - 1.0)`**: Uses the **voltage divider equation** to compute the flex sensor’s **resistance**.
-
-#### **3. Output via Serial Monitor**
-- The **sensor resistance** is printed to the **Serial Monitor** every `500ms`.
-
----
-
-### **How It Works**
-1. The **flex sensor** acts as a **variable resistor**.
-2. When it is **straight**, its resistance is **low (~30kΩ)**, causing a **higher voltage** at `A0`.
-3. When it is **bent**, its resistance **increases (~70kΩ+)**, leading to a **lower voltage** at `A0`.
-4. The Arduino converts the voltage to resistance and prints it.
-
----
-
-### **How to Use**
-1. **Wiring**:
-   - One end of the **flex sensor** goes to **A0 & 3.3V**. 
-   - A **47kΩ resistor** is connected between **A0 and GND**.
-2. **Upload the code** to an Arduino.
-3. Open **Serial Monitor (9600 baud)** to see the **sensor resistance change** as you bend it.
-
-# convert to MINT
-```
+### **Convert to MINT**
+```mint
 // Define variables 
 :A 0 a !         // Analog pin A0 for flex sensor input
 :B 4980 b !      // VCC in millivolts (4.98V)  
@@ -140,11 +96,4 @@ void loop() {
   L                          // Loop forever
 ;
 ```
-
-# Punch some nuts
-
-
-
-
- 
 
