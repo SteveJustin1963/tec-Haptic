@@ -24,7 +24,7 @@ Finger movements can be detected using:
   - Typical resistance: ~30kΩ unbent, ~70kΩ fully bent.
   - Used in voltage dividers with a reference resistor (e.g., 47kΩ) for signal stability.
 
-- **Capacitive Sensors** – Custom-made by coiling insulated magnetic wire around a skewer at a ~45-degree pitch.
+- **Capacitive Sensors** – Custom-made by coiling insulated magnetic wire around a skewer at a helix pitch.
   - Once formed, dip in liquid latex to maintain shape.
   - When flexed, the capacitance varies, producing a signal convertible to frequency or voltage, which can be processed via an ADC.
 
