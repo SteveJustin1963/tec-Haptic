@@ -1,55 +1,48 @@
 # tec-Haptic
 
-### Haptic communication interfaces for the tec-1
+## Haptic Communication Interfaces for the TEC-1
 
-A simple haptic communication interface is an interface that allows two devices to communicate with each other using haptic feedback. Haptic feedback is a type of feedback that uses the sense of touch to communicate with a user. It can be used to provide information about the status of a system, to give feedback about the user's actions, or to provide a way for the user to interact with the system.
+### Overview
+Haptic communication interfaces enable devices to communicate through touch-based feedback. This technology can provide sensory feedback about a system's status, confirm user interactions, or allow users to control a system through touch-sensitive input.
 
-## input
-The input is collected through a variety of sensors that are placed on the body. These sensors can be used to detect a variety of information, such as the user's  
+## Input Mechanisms
+### Sensor-Based Input
+The system collects input from various sensors placed on the body to detect different types of motion and interaction. Commonly used sensors include:
 
-## movement of a human finger
-There are a variety of different sensors that can be used to detect the movement of a human finger. Some of the most common sensors include 
+- **Motion Sensors** – Detects overall movement.
+- **Accelerometers** – Measures changes in velocity and direction.
+- **Gyroscopes** – Tracks orientation and angular velocity.
+- **Magnetometers** – Detects magnetic field changes, useful for directional tracking.
+- **Pressure Sensors** – Measures applied force or touch intensity.
+- **Skin Temperature Sensors** – Monitors changes in skin temperature.
 
-- movements sensor, 
-- accelerometers, 
-- gyroscopes, 
-- magnetometers. 
-- pressure sensor
-- temperature sensor on skin
+### Detecting Finger Movements
+Finger movements can be detected using:
 
+- **Variable Resistors (Flex Sensors)** – Flexible strips whose resistance changes with bending.
+  - Example: [SparkFun Flex Sensor Guide](https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all)
+  - Typical resistance: ~30kΩ unbent, ~70kΩ fully bent.
+  - Used in voltage dividers with a reference resistor (e.g., 47kΩ) for signal stability.
 
+- **Capacitive Sensors** – Custom-made by coiling insulated magnetic wire around a skewer at a ~45-degree pitch.
+  - Once formed, dip in liquid latex to maintain shape.
+  - When flexed, the capacitance varies, producing a signal convertible to frequency or voltage, which can be processed via an ADC.
 
-### variable resistor be used? 
+## Output Mechanisms
+Various output types provide haptic feedback, including:
 
-But the simplest is to use a variable resistor such as 
-- flex strip. 
-- for example https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all. 
-When is unbent its around 30k ohms when bent it increases to around 70k ohms. 
-"The simplest way to incorporate this sensor into your project is by using it in a voltage divider. 
-This circuit requires one resistor. 
-Many values from 10KΩ to 100KΩ will work. 
-If you have a resistor kit, you may want to introduce some trial-and-error to hone in on that perfect static resistance. 
-A value between the minimum and maximum resistance values is usually a good choice. We'll use a 47kΩ resistor in this example"
+- **Vibration** – Small motors or piezo actuators provide tactile feedback.
+- **Pressure Feedback** – Mechanisms apply resistance or force feedback to simulate physical interaction.
+- **Temperature Feedback** – Thermoelectric devices create heat or coolness for simulation.
+- **Force Feedback** – Motors or resistance elements simulate pressure or resistance.
 
-- capacitive sensor 
-make by taking two strands of insulated magnetic wire like used I transformers, and coiling them around a skewer stick at say 45 degree or less pitch. Then slide out the skewer, the stiffness in the wire should hold its shape. Dip into liquid latex or similar and let drip dry. When you flex this rubber shaft then C will vary. When fed through a circuit can produce a variable frequency or voltage then into an ADC. 
+## Code Implementation
+(Code to be included in the repository.)
 
-## output
-There are a variety of different types of output that can be used in a haptic communication interface. These include 
-- vibration, 
-- pressure, 
-- temperature, 
-- force feedback. 
-
-
-
-## code
-
-
-## Iterate
+## Further Development
+### Related Projects
 - [tec-Gesture](https://github.com/SteveJustin1963/tec-Gesture)
 
-## Ref
-- 
-
+### References
+- (Add relevant references and documentation sources here.)
 
