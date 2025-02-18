@@ -103,3 +103,42 @@ The `FSensor.ino` file is an Arduino sketch for reading a **flex sensor** using 
 ;
 ```
 
+### Assumption - reading the analog value from port A0.
+This is a logical l problem and still needs to be resolved for this code to actually work on a real TEC-1.
+
+
+
+Here's the relevant line:
+
+```
+a /I f !                   // Read ADC value from A0
+```
+
+The variables were defined at the top:
+
+```
+:A 0 a !         // Analog pin A0 for flex sensor input
+```
+
+This maps the variable 'a' to the value 0, indicating analog pin A0.
+The /I command reads the value from an input port. So a /I reads the analog value from the port mapped to variable 'a', which is A0.
+Therefore, the code is set up to read the flex sensor resistance value from analog pin A0 on each loop iteration.
+According to the Arduino documentation, the analog input ports like A0 have a resolution of 10 bits. This means they can represent 2^10 = 1024 discrete values.
+By default, the Arduino's analog pins measure from ground (0V) to 5V. So the range of values is:
+
+- Minimum value: 0, corresponding to 0V (Ground)
+- Maximum value: 1023, corresponding to 5V 
+
+Any voltage between 0V and 5V will be mapped to an integer value between 0 and 1023.
+
+For example:
+- 0V => 0 
+- 2.5V => 511 (halfway between 0 and 1023)
+- 5V => 1023
+
+However, the actual voltage range can be different if the AREF pin is used to provide an external reference voltage.
+
+In the context of the flex sensor code, the analogRead(A0) function (which /I is analogous to in MINT) will return a value between 0 and 1023 representing the voltage on pin A0 produced by the flex sensor in the voltage divider circuit.
+
+So in summary, the range of values read from A0 for the flex sensor will be an integer from 0 to 1023, proportional to the voltage which varies based on the sensor's resistance as it bends.
+
