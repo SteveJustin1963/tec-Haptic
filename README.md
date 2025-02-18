@@ -64,35 +64,41 @@ The `FSensor.ino` file is an Arduino sketch for reading a **flex sensor** using 
 
 ### **Convert to MINT**
 ```mint
-// Define variables 
+// Define variables
 :A 0 a !         // Analog pin A0 for flex sensor input
 :B 4980 b !      // VCC in millivolts (4.98V)  
 :C 47500 c !     // Resistor value (47.5kΩ)
 
-// Constants for angle calculation
+// Constants for angle calculation  
 :D 37300 d !     // Resistance when straight
 :E 90000 e !     // Resistance at 90 degrees
 
-// Setup function (runs once)  
+// Setup function (runs once)
 :S /K ;          // Output to default terminal
 
 // Main loop (runs continuously)
-:L
-  a /I f !                   // Read ADC value from A0   
+:L  
+  0 /c ! 0 /r !              // Clear carry and remainder
+  a /I f !                   // Read ADC value from A0
   f b * 1023 / g !           // Convert ADC to voltage (mV)
-
+  /c g + g !                 // Add carry to result
+  
+  0 /c ! 0 /r !              // Clear carry and remainder
   b g / 
-  b * c *
+  b * c * 
   h !                        // Calculate resistance
-      
+  /r h + h !                 // Add remainder to result
+   
   `Resistance: ` h . ` ohms` /N   // Print resistance
-        
-  h d - i !                  // Calculate bend angle  
-  e d - * 90 / i + i !
-        
+         
+  0 /c ! 0 /r !              // Clear carry and remainder       
+  h d - i !                  // Calculate bend angle 
+  e d - * 90 / 
+  /r + i !                   // Add remainder to angle
+         
   `Bend: ` i . ` degrees` /N /N   // Print angle
 
-  500 ()                     // Delay 500ms      
+  500 ()                     // Delay 500ms       
   L                          // Loop forever
 ;
 ```
