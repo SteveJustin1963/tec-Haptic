@@ -43,7 +43,7 @@ Various output types provide haptic feedback, including:
 - **Force Feedback** – Motors or resistance elements simulate pressure or resistance.
 
 ## Code Implementation
-looking at other pppls work
+looking at other ppl work
 
 FSensor.ino
 
