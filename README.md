@@ -106,6 +106,43 @@ void loop() {
 2. **Upload the code** to an Arduino.
 3. Open **Serial Monitor (9600 baud)** to see the **sensor resistance change** as you bend it.
 
+# convert to MINT
+```
+// Define variables 
+:A 0 a !         // Analog pin A0 for flex sensor input
+:B 4980 b !      // VCC in millivolts (4.98V)  
+:C 47500 c !     // Resistor value (47.5kΩ)
+
+// Constants for angle calculation
+:D 37300 d !     // Resistance when straight
+:E 90000 e !     // Resistance at 90 degrees
+
+// Setup function (runs once)  
+:S /K ;          // Output to default terminal
+
+// Main loop (runs continuously)
+:L
+  a /I f !                   // Read ADC value from A0   
+  f b * 1023 / g !           // Convert ADC to voltage (mV)
+
+  b g / 
+  b * c *
+  h !                        // Calculate resistance
+      
+  `Resistance: ` h . ` ohms` /N   // Print resistance
+        
+  h d - i !                  // Calculate bend angle  
+  e d - * 90 / i + i !
+        
+  `Bend: ` i . ` degrees` /N /N   // Print angle
+
+  500 ()                     // Delay 500ms      
+  L                          // Loop forever
+;
+```
+
+# Punch some nuts
+
 
 
 
