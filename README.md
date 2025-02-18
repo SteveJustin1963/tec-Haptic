@@ -104,7 +104,7 @@ The `FSensor.ino` file is an Arduino sketch for reading a **flex sensor** using 
 ```
 
 ### Assumption - reading the analog value from port A0.
-This is a logical l problem and still needs to be resolved for this code to actually work on a real TEC-1.
+This is a logical problem and still needs to be resolved for this code to actually work on a real TEC-1.
 
 
 
