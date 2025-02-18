@@ -102,7 +102,7 @@ void loop() {
 
 ### **How to Use**
 1. **Wiring**:
-   - One end of the **flex sensor** goes to **A0 & 3.3V**.
+   - One end of the **flex sensor** goes to **A0 & 3.3V**. 
    - A **47kΩ resistor** is connected between **A0 and GND**.
 2. **Upload the code** to an Arduino.
 3. Open **Serial Monitor (9600 baud)** to see the **sensor resistance change** as you bend it.
