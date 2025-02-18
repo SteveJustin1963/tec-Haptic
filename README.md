@@ -9,12 +9,18 @@ Haptic communication interfaces enable devices to communicate through touch-base
 ### Sensor-Based Input
 The system collects input from various sensors placed on the body to detect different types of motion and interaction. Commonly used sensors include:
 
-- **Motion Sensors** – Detects overall movement.
-- **Accelerometers** – Measures changes in velocity and direction.
-- **Gyroscopes** – Tracks orientation and angular velocity.
-- **Magnetometers** – Detects magnetic field changes, useful for directional tracking.
-- **Pressure Sensors** – Measures applied force or touch intensity.
-- **Skin Temperature Sensors** – Monitors changes in skin temperature.
+- **Motion Sensors** – Detects overall movement. For entry-level experimentation using an SBC running a Z80 with simple I/O, consider using a basic PIR (Passive Infrared) sensor for detecting motion. These sensors are easy to interface with digital inputs and provide a simple on/off signal. Alternatively, a mechanical tilt switch or reed switch can be used for basic motion detection without requiring complex signal processing.
+
+- **Accelerometers** – Measures changes in velocity and direction. For entry-level experimentation with a Z80-based SBC, a low-cost MEMS accelerometer such as the ADXL345 can be interfaced via I2C or SPI for simple movement tracking.
+  
+- **Gyroscopes** – Tracks orientation and angular velocity. Consider using an MPU6050, which integrates both a gyroscope and an accelerometer, simplifying sensor fusion.
+  
+- **Magnetometers** – Detects magnetic field changes, useful for directional tracking. The HMC5883L is a commonly used module that provides digital compass capabilities.
+  
+- **Pressure Sensors** –  Measures applied force or touch intensity. Simple force-sensitive resistors (FSRs) can be used to detect pressure changes and provide an easy-to-read analog signal.
+  
+- **Skin Temperature Sensors** – Monitors changes in skin temperature. The MLX90614 infrared temperature sensor allows non-contact temperature readings, useful for wearable applications.
+  
 
 ### Detecting Finger Movements
 Finger movements can be detected using:
